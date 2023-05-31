@@ -37,6 +37,21 @@ namespace Kradiy_UI
                 Debug.WriteLine("Logged in");
                 
             }
+            public static bool LoginOnce()
+            {
+                client = new MegaApiClient();
+                try
+                {
+                    client.Login(login, password);
+                    Debug.WriteLine("Logged in");
+                    return true;
+                }
+                catch
+                {
+                    Debug.WriteLine("not logged in");
+                    return false;
+                }
+            }
         }
         public static void UploadFolders()
         {

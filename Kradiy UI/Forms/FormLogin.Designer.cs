@@ -34,7 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ButtonLogOut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // InputLogIn
@@ -99,30 +99,30 @@
             this.label3.Text = "Успішно авторизовано";
             this.label3.Visible = false;
             // 
-            // button1
+            // ButtonLogOut
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(18, 224);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 71);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Вийти";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ButtonLogOut.FlatAppearance.BorderSize = 0;
+            this.ButtonLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonLogOut.Location = new System.Drawing.Point(18, 224);
+            this.ButtonLogOut.Name = "ButtonLogOut";
+            this.ButtonLogOut.Size = new System.Drawing.Size(157, 71);
+            this.ButtonLogOut.TabIndex = 6;
+            this.ButtonLogOut.Text = "Вийти";
+            this.ButtonLogOut.UseVisualStyleBackColor = true;
+            this.ButtonLogOut.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.InputLogIn);
-            this.Controls.Add(this.ButtonLogIn);
             this.Controls.Add(this.InputPassword);
+            this.Controls.Add(this.ButtonLogOut);
+            this.Controls.Add(this.ButtonLogIn);
             this.Name = "FormLogin";
             this.Text = "Авторизація в акаунт Mega";
             this.Load += new System.EventHandler(this.FormLogin_Load);
@@ -138,6 +138,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ButtonLogOut;
     }
 }

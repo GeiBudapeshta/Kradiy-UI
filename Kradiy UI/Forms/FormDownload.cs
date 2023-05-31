@@ -39,16 +39,23 @@ namespace Kradiy_UI.Forms
         private void FormDownload_Load(object sender, EventArgs e)
         {
             label3.Visible = false;
+            if (Kradiy.User.client == null)
+            {
+                button2.Visible= false;
+                label1.Visible = true;
+            }
+            else
+            {
+                button2.Visible = true;
+                label1.Visible=false;
+            }
 
             LoadTheme();
-            if(Kradiy.User.client!=null && Kradiy.User.client.IsLoggedIn)
-            {
-                LoadFolders();
-            }
 
         }
         private void LoadFolders()
         {
+            label1.Visible = true;
             label1.Text = "Отримання папок, зачекайте";
             List<string> folders = Kradiy.ListFoldersInRoot();
             label1.Text = "Папки користувача " + Environment.UserName + ":";
@@ -97,6 +104,15 @@ namespace Kradiy_UI.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             Kradiy.DownloadFolder(selected_folder_index);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (Kradiy.User.client != null && Kradiy.User.client.IsLoggedIn)
+            {
+                LoadFolders();
+
+            }
         }
     }
 }

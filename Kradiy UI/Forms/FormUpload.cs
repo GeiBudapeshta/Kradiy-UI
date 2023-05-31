@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,6 +56,7 @@ namespace Kradiy_UI.Forms
         {
             Folders.Clear();
             ShowListOnRichTextBox(richTextBoxFolders, Folders);
+            GetFoldersSize();
         }
 
         private void buttonTemp_Click(object sender, EventArgs e)
@@ -73,8 +76,45 @@ namespace Kradiy_UI.Forms
                 Folders.Add(folderBrowserDialog1.SelectedPath);
                 ShowListOnRichTextBox(richTextBoxFolders, Folders);
             }
+            GetFoldersSize();
+
 
         }
+        void GetFoldersSize()
+        {
+            long DirSize(DirectoryInfo d)
+            {
+                long size = 0;
+                // Add file sizes.
+                FileInfo[] fis = d.GetFiles();
+                foreach (FileInfo fi in fis)
+                {
+                    size += fi.Length;
+                }
+                // Add subdirectory sizes.
+                DirectoryInfo[] dis = d.GetDirectories();
+                foreach (DirectoryInfo di in dis)
+                {
+                    size += DirSize(di);
+                }
+                return size;
+            }
+            long output = 0;
+            foreach (var folder in Folders)
+            {
+                try
+                {
+                    output += DirSize(new DirectoryInfo(folder));
+                }
+                catch
+                {
+                    Debug.WriteLine("acces denied");
+                }
+            }
+            label3.Text = "Розмір: " + Math.Round((Convert.ToDouble(output) / 1000000), 2) + "мб";
+            label3.Visible = true;
+        }
+
         private void ShowListOnRichTextBox(RichTextBox richTextBox,List<string> strings)
         {
             richTextBox.Text = "";
@@ -99,6 +139,7 @@ namespace Kradiy_UI.Forms
                 }
                 ShowListOnRichTextBox(richTextBoxFolders, Folders);
             }
+            GetFoldersSize();
         }
 
         private void buttonUpload_Click(object sender, EventArgs e)

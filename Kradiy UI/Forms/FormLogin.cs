@@ -34,13 +34,19 @@ namespace Kradiy_UI.Forms
         }
         private void ButtonLogIn_Click(object sender, EventArgs e)
         {
+            label3.Visible = false;
+
             Kradiy.User.login = InputLogIn.Text;
             Kradiy.User.password = InputPassword.Text;
-            Kradiy.User.Login();
-            label3.Visible = (Kradiy.User.client != null);
-            ButtonLogIn.Visible = (Kradiy.User.client == null);
-            button1.Visible = (Kradiy.User.client != null);
-
+            //Kradiy.User.Login();
+            bool isLoggedIn = Kradiy.User.LoginOnce();
+            label3.Visible = true;
+            if (isLoggedIn)
+                label3.Text = "Успішно авторизовано";
+            else
+                label3.Text = "Не вдалося авторизуватися";
+            ButtonLogIn.Visible = !isLoggedIn;
+            ButtonLogOut.Visible = isLoggedIn;
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
@@ -48,7 +54,7 @@ namespace Kradiy_UI.Forms
             LoadTheme();
             if(Kradiy.User.client != null)
             {
-                button1.Visible = Kradiy.User.client.IsLoggedIn;
+                ButtonLogOut.Visible = Kradiy.User.client.IsLoggedIn;
                 label3.Visible = Kradiy.User.client.IsLoggedIn;
                 ButtonLogIn.Visible = !Kradiy.User.client.IsLoggedIn;
             }
@@ -56,7 +62,7 @@ namespace Kradiy_UI.Forms
             {
                 label3.Visible=false;
                 ButtonLogIn.Visible = true;
-                button1.Visible = false;
+                ButtonLogOut.Visible = false;
 
             }
         }
@@ -64,7 +70,7 @@ namespace Kradiy_UI.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             Kradiy.User.client.Logout();
-            button1.Visible = Kradiy.User.client.IsLoggedIn;
+            ButtonLogOut.Visible = Kradiy.User.client.IsLoggedIn;
             label3.Visible = Kradiy.User.client.IsLoggedIn;
             ButtonLogIn.Visible = !Kradiy.User.client.IsLoggedIn;
 

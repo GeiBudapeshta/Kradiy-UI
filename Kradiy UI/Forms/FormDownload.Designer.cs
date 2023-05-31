@@ -36,6 +36,7 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxFolders
@@ -43,7 +44,7 @@
             this.listBoxFolders.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBoxFolders.FormattingEnabled = true;
             this.listBoxFolders.ItemHeight = 29;
-            this.listBoxFolders.Location = new System.Drawing.Point(13, 53);
+            this.listBoxFolders.Location = new System.Drawing.Point(13, 68);
             this.listBoxFolders.Name = "listBoxFolders";
             this.listBoxFolders.Size = new System.Drawing.Size(363, 323);
             this.listBoxFolders.TabIndex = 0;
@@ -54,7 +55,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(222, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(389, 37);
             this.label1.TabIndex = 1;
@@ -98,7 +99,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(6, 379);
+            this.label3.Location = new System.Drawing.Point(6, 431);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(183, 29);
             this.label3.TabIndex = 7;
@@ -117,11 +118,23 @@
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.Location = new System.Drawing.Point(13, 7);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(203, 55);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Отримати дані";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FormDownload
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(876, 596);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonTemp);
@@ -147,5 +160,6 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
